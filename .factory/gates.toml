@@ -1,0 +1,56 @@
+# Gate definitions for the factory-test e2e pipeline.
+#
+# A gate is a quality checkpoint that an artifact must pass before it can
+# advance to the next pipeline stage. Each gate is bound to a stage and
+# declares a list of named checks. The factory resolves each check name to a
+# rule in the gates repo (rules/{foundational,policy,learned}/<name>.md,
+# matched by the rule's H1 `# Rule: <name>`). Evaluation is structural: the
+# rule must exist, be active, and have a non-empty Check section; semantic
+# evaluation is delegated to the stage workers.
+#
+# Chain under test: triage -> spec -> implement -> verify -> review.
+# Merge and Ship have no gates here — the D30 invariant halts the pipeline
+# after review passes; a human merges.
+
+[[gates]]
+name = "triage-gate"
+stage = "triage"
+checks = [
+  "tier-justified", # tier assignment has a stated reason, not a guess
+  "route-valid",    # routed route exists in the workflow catalog
+  "cross-check",    # triage decision cross-checked against known patterns
+]
+
+[[gates]]
+name = "spec-gate"
+stage = "spec"
+checks = [
+  "spec-complete",  # goal, scope, acceptance criteria, out-of-scope all present
+  "spec-testable",  # every acceptance criterion maps to a checkable test
+  "spec-linked",    # references the originating issue and triage decision
+]
+
+[[gates]]
+name = "implement-gate"
+stage = "implement"
+checks = [
+  "builds",         # the artifact builds in a clean sandbox
+  "tests-pass",     # the worker's own tests run green
+  "diff-scoped",    # changes stay inside the spec's declared scope
+]
+
+[[gates]]
+name = "verify-gate"
+stage = "verify"
+checks = [
+  "repro-from-clean", # a fresh checkout reproduces the claimed fix
+  "security-scan",    # no new CVEs / secrets / unsafe patterns introduced
+]
+
+[[gates]]
+name = "review-gate"
+stage = "review"
+checks = [
+  "spec-satisfied", # each acceptance criterion from the spec is met
+  "ci-green",       # CI pipeline is green on the PR head commit
+]

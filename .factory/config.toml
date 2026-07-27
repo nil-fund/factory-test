@@ -1,15 +1,43 @@
+# Factory e2e config — full SDLC pipeline chain with agent-agnostic workers.
+# Chain: triage -> spec -> implement -> verify -> review -> halt (D30: a human merges).
 version = 1
 poll_every = "10s"
 
 [worker]
 runtime = "hermes"
+pool = ["hermes"]
 sandbox = "worktree"
 timeout = "30m"
 maximum_timeout = "1h"
 max_concurrent = 1
 
+[factory]
+substrate_path = "/Users/jai/Desktop/substrate"
+episodic_path = "/Users/jai/Desktop/episodic"
+kb_path = "/Users/jai/Desktop/kb"
+gates_path = "/Users/jai/Desktop/gates"
+# Single-worker pool: exploration would still route to hermes, so disable it
+# to keep this e2e run deterministic.
+exploration_budget = 0.0
+
 [source]
 command = [".factory/sources/github"]
+
+[trigger.triage]
+type = "source"
+state = "open"
+labels = ["factory:triage"]
+workflow = ".factory/workflows/triage.md"
+timeout = "30m"
+pipeline = true
+
+[trigger.spec]
+type = "source"
+state = "open"
+labels = ["factory:spec"]
+workflow = ".factory/workflows/spec.md"
+timeout = "30m"
+pipeline = true
 
 [trigger.implement]
 type = "source"
@@ -17,3 +45,20 @@ state = "open"
 labels = ["factory:ready-to-implement"]
 workflow = ".factory/workflows/implement.md"
 timeout = "30m"
+pipeline = true
+
+[trigger.verify]
+type = "source"
+state = "open"
+labels = ["factory:verify"]
+workflow = ".factory/workflows/verify.md"
+timeout = "30m"
+pipeline = true
+
+[trigger.review]
+type = "source"
+state = "open"
+labels = ["factory:review"]
+workflow = ".factory/workflows/review.md"
+timeout = "30m"
+pipeline = true

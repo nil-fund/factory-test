@@ -8,6 +8,13 @@
 # rule must exist, be active, and have a non-empty Check section; semantic
 # evaluation is delegated to the stage workers.
 #
+# A check may also declare `min_bytes` — a floor on the artifact's content
+# size. A check with a floor FAILS when the artifact's content is smaller:
+# a vacuous artifact (e.g. a worker's preamble stored as the deliverable,
+# fp-0001) is a defect signal, not a judgment call. Floors are tuned well
+# below honest artifacts (565B–1.9KB in the #6 run) and well above preambles
+# (the vacuous #6 spec artifact was 90B).
+#
 # Chain under test: triage -> spec -> implement -> verify -> review.
 # Merge and Ship have no gates here — the D30 invariant halts the pipeline
 # after review passes; a human merges.
@@ -16,41 +23,44 @@
 name = "triage-gate"
 stage = "triage"
 checks = [
-  "tier-justified", # tier assignment has a stated reason, not a guess
-  "route-valid",    # routed route exists in the workflow catalog
-  "cross-check",    # triage decision cross-checked against known patterns
+  { name = "tier-justified", min_bytes = 100 }, # tier assignment has a stated reason, not a guess
+  { name = "route-valid", min_bytes = 100 },    # routed route exists in the workflow catalog
+  { name = "cross-check", min_bytes = 100 },    # triage decision cross-checked against known patterns
 ]
 
 [[gates]]
 name = "spec-gate"
 stage = "spec"
 checks = [
-  "spec-complete",  # goal, scope, acceptance criteria, out-of-scope all present
-  "spec-testable",  # every acceptance criterion maps to a checkable test
-  "spec-linked",    # references the originating issue and triage decision
+  { name = "spec-complete", min_bytes = 200 },  # goal, scope, acceptance criteria, out-of-scope all present
+  { name = "spec-testable", min_bytes = 200 },  # every acceptance criterion maps to a checkable test
+  { name = "spec-linked", min_bytes = 200 },    # references the originating issue and triage decision
+  # Learned rule (fp-0001): the artifact must be substantive — content at or
+  # above the floor AND an acceptance-criteria section marker.
+  { name = "spec-artifact-substantive", min_bytes = 200 },
 ]
 
 [[gates]]
 name = "implement-gate"
 stage = "implement"
 checks = [
-  "builds",         # the artifact builds in a clean sandbox
-  "tests-pass",     # the worker's own tests run green
-  "diff-scoped",    # changes stay inside the spec's declared scope
+  { name = "builds", min_bytes = 100 },      # the artifact builds in a clean sandbox
+  { name = "tests-pass", min_bytes = 100 },  # the worker's own tests run green
+  { name = "diff-scoped", min_bytes = 100 }, # changes stay inside the spec's declared scope
 ]
 
 [[gates]]
 name = "verify-gate"
 stage = "verify"
 checks = [
-  "repro-from-clean", # a fresh checkout reproduces the claimed fix
-  "security-scan",    # no new CVEs / secrets / unsafe patterns introduced
+  { name = "repro-from-clean", min_bytes = 200 }, # a fresh checkout reproduces the claimed fix
+  { name = "security-scan", min_bytes = 200 },    # no new CVEs / secrets / unsafe patterns introduced
 ]
 
 [[gates]]
 name = "review-gate"
 stage = "review"
 checks = [
-  "spec-satisfied", # each acceptance criterion from the spec is met
-  "ci-green",       # CI pipeline is green on the PR head commit
+  { name = "spec-satisfied", min_bytes = 200 }, # each acceptance criterion from the spec is met
+  { name = "ci-green", min_bytes = 200 },       # CI pipeline is green on the PR head commit
 ]

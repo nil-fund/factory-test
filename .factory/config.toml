@@ -4,8 +4,8 @@ version = 1
 poll_every = "10s"
 
 [worker]
-runtime = "hermes"
-pool = ["hermes"]
+runtime = "opencode"
+pool = ["opencode"]
 sandbox = "worktree"
 timeout = "30m"
 maximum_timeout = "1h"
@@ -16,7 +16,7 @@ substrate_path = "/Users/jai/Desktop/substrate"
 episodic_path = "/Users/jai/Desktop/episodic"
 kb_path = "/Users/jai/Desktop/kb"
 gates_path = "/Users/jai/Desktop/gates"
-# Single-worker pool: exploration would still route to hermes, so disable it
+# Single-worker pool: exploration would still route to opencode, so disable it
 # to keep this e2e run deterministic.
 exploration_budget = 0.0
 

@@ -4,8 +4,8 @@ version = 1
 poll_every = "10s"
 
 [worker]
-runtime = "opencode"
-pool = ["pi", "opencode"]
+runtime = "pi"
+pool = ["pi"]
 sandbox = "worktree"
 timeout = "30m"
 maximum_timeout = "1h"

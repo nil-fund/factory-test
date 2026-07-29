@@ -1,0 +1,53 @@
+{
+  "actor": {
+    "id": "factory:rule:success-criteria-runner-v1",
+    "kind": "system"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-00000000020c",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": null,
+    "stage": null,
+    "stage_attempt_id": null,
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-000000000212",
+  "event_type": "factory.fingerprint.transitioned",
+  "integrity": {
+    "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:20:18Z",
+  "payload": {
+    "fingerprint_id": "fingerprint-1",
+    "from_status": "candidate",
+    "gates_commit": "gates-commit-3",
+    "regression_test_ref": "gates:tests/fingerprint-1",
+    "reproducer_ref": "gates:reproducers/fingerprint-1",
+    "to_status": "active",
+    "validation_evidence_event_ids": [
+      "019c0000-0000-7000-8000-00000000020b"
+    ]
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:20:19Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 14,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-1"
+}

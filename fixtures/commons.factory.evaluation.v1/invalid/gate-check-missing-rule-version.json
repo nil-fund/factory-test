@@ -1,0 +1,59 @@
+{
+  "actor": {
+    "id": "factory:rule:success-criteria-runner-v1",
+    "kind": "system"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-000000000204",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": "stream-1:run-review-1",
+    "stage": "review",
+    "stage_attempt_id": "pipeline-execution-1:review:1",
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-000000000208",
+  "event_type": "factory.gate.evaluated",
+  "integrity": {
+    "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:20:08Z",
+  "payload": {
+    "checks": [
+      {
+        "check_id": "review-approved",
+        "evidence_refs": [
+          "artifact://review/check"
+        ],
+        "result": "pass"
+      }
+    ],
+    "gate_id": "review-gate",
+    "gate_version": "review-gate-v1",
+    "gates_commit": "gates-commit-1",
+    "input_artifact_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "stage": "review",
+    "verdict": "pass"
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:20:09Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 5,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-1"
+}

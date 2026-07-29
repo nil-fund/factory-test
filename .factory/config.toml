@@ -1,10 +1,15 @@
-# Factory e2e config — full SDLC pipeline chain with agent-agnostic workers.
+# LEGACY / PRE-ACCEPTANCE FIXTURE.
+# This preserves the 2026-07-29 trigger-only Factory rerun configuration. It is
+# not the Commons eight-stage SC-2 harness and cannot produce current
+# acceptance evidence. The historical rerun selected opencode/glm-5.2; that
+# selection says nothing about which runtimes are installed or supported now.
+# Factory e2e config — historical pipeline chain with agent-agnostic workers.
 # Rerun 2026-07-29 (defects G+H fix, rerun 2): opencode/glm-5.2 single worker.
-# pool=[opencode], runtime=opencode. Pi doesn't execute code headlessly per the
-# rerun; codex not installed; opencode/glm-5.2 is the one working worker.
+# pool=[opencode], runtime=opencode.
 # Defect H: single-worker relaxation means no separation degrade.
 # Defect G fix: prompt tells workers to use `gh pr create --repo nil-fund/factory-test` explicitly.
-# Chain: triage -> spec -> implement -> verify -> review -> halt (D30: human merges).
+# Historical chain: triage -> spec -> implement -> verify -> review -> halt.
+# It lacks Intake, Merge post-merge verification, and Ship, so it is not SC-2.
 # Reroute-on-exhaustion so defect A (worker-failure reroute) can fire.
 version = 1
 poll_every = "10s"

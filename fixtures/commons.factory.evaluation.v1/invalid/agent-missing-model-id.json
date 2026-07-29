@@ -1,0 +1,56 @@
+{
+  "actor": {
+    "id": "worker-review-1",
+    "kind": "agent",
+    "runtime": "codex",
+    "worker_config_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "worker_id": "worker-review-1"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-000000000202",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": "stream-1:run-review-1",
+    "stage": "review",
+    "stage_attempt_id": "pipeline-execution-1:review:1",
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-000000000204",
+  "event_type": "factory.worker.selected",
+  "integrity": {
+    "payload_sha256": "08cce12c823473b48de8418dc3ca01593774530b60f3313a50f1aef81be61f9a",
+    "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:20:04Z",
+  "payload": {
+    "eligible_workers": [
+      "worker-review-1",
+      "worker-review-2"
+    ],
+    "excluded_workers": [],
+    "exploration": false,
+    "selection_reason": "performance",
+    "separation_degraded": false,
+    "stage": "review"
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:20:05Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 3,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-1"
+}

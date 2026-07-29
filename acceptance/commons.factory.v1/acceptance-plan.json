@@ -1,0 +1,147 @@
+{
+  "schema_version": "commons.factory.acceptance-plan.v1",
+  "contract": "acceptance/commons.factory.v1/contract.md",
+  "authoritative_stream": "commons://episodic/factory/YYYY/MM/DD.jsonl",
+  "pipeline_stage_order": [
+    "intake",
+    "triage",
+    "spec",
+    "implement",
+    "verify",
+    "review",
+    "merge",
+    "ship"
+  ],
+  "scenarios": [
+    {
+      "id": "SC-1",
+      "name": "human-system-intake-convergence",
+      "inputs": [
+        {
+          "origin_kind": "human",
+          "origin_channel": "github"
+        },
+        {
+          "origin_kind": "system",
+          "origin_channel": "scanner"
+        }
+      ],
+      "required_equal": [
+        "normalized_intent_sha256",
+        "pipeline_template_hash",
+        "stage_order",
+        "gate_ids",
+        "workflow_commit",
+        "gates_commit",
+        "factory_commit",
+        "substrate_commit",
+        "risk_result",
+        "route_result"
+      ],
+      "allowed_differences": [
+        "event_id",
+        "occurred_at",
+        "recorded_at",
+        "sequence",
+        "source",
+        "origin_kind",
+        "origin_channel",
+        "actor"
+      ],
+      "required_initial_stage": "intake",
+      "maximum_pipeline_diff_entries": 0
+    },
+    {
+      "id": "SC-2",
+      "name": "eight-stage-human-merge-and-ship",
+      "required_stage_order": [
+        "intake",
+        "triage",
+        "spec",
+        "implement",
+        "verify",
+        "review",
+        "merge",
+        "ship"
+      ],
+      "required_boundary": "merge",
+      "required_merge_actor_kind": "human",
+      "require_independently_verified_provider_merge": true,
+      "forbid_merge_or_ship_before_attestation": true,
+      "required_terminal_outcome": "shipped"
+    },
+    {
+      "id": "SC-3",
+      "name": "mid-pipeline-worker-swap",
+      "ticket_count_per_arm": 10,
+      "minimum_gate_opportunities_per_arm": 50,
+      "baseline_worker_plan": {
+        "through_ship": "worker-a"
+      },
+      "swap_worker_plan": {
+        "through_spec": "worker-a",
+        "from_implement": "worker-b"
+      },
+      "maximum_pipeline_diff_entries": 0,
+      "maximum_absolute_first_pass_rate_delta": 0.05,
+      "maximum_additional_escapes_in_swap_arm": 0,
+      "require_complete_worker_and_model_identity": true
+    },
+    {
+      "id": "SC-4",
+      "name": "escape-fingerprint-rule-next-similar-blocked",
+      "required_transitions": [
+        "candidate->validated",
+        "validated->active"
+      ],
+      "required_replay_fixtures": [
+        "own_escape",
+        "known_clean",
+        "next_similar"
+      ],
+      "maximum_known_clean_false_positives": 0,
+      "require_next_similar_blocked": true,
+      "maximum_post_activation_recurrence": 0,
+      "require_executable_regression_test": true
+    },
+    {
+      "id": "SC-5",
+      "name": "run-50-materially-better-than-run-5",
+      "ticket_count": 50,
+      "first_window": [
+        1,
+        5
+      ],
+      "final_window": [
+        46,
+        50
+      ],
+      "minimum_first_pass_rate_improvement": 0.1,
+      "minimum_first_window_escapes": 1,
+      "maximum_final_window_escapes": 0,
+      "minimum_escape_reduction": 1,
+      "maximum_final_to_first_median_actual_cost_ratio": 0.85,
+      "require_actual_cost_for_every_execution": true,
+      "require_complete_terminal_state_for_every_execution": true,
+      "require_equal_complexity_mix_per_five_ticket_window": true
+    }
+  ],
+  "glance_telemetry_readiness": {
+    "require_active_episodic_schema": true,
+    "require_complete_historical_migration_manifest": true,
+    "maximum_duplicate_event_ids": 0,
+    "maximum_sequence_gaps": 0,
+    "maximum_hash_chain_gaps": 0,
+    "maximum_unexported_acceptance_outbox_events": 0,
+    "require_deterministic_projection_replay": true,
+    "minimum_acceptance_identity_completeness": 1.0,
+    "minimum_acceptance_gate_completeness": 1.0,
+    "minimum_acceptance_terminal_state_completeness": 1.0,
+    "required_valid_scenarios_before_real_data_ui": [
+      "SC-1",
+      "SC-2",
+      "SC-3",
+      "SC-4"
+    ]
+  }
+}

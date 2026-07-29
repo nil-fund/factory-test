@@ -1,24 +1,28 @@
 # Factory e2e config — full SDLC pipeline chain with agent-agnostic workers.
 # Chain: triage -> spec -> implement -> verify -> review -> halt (D30: a human merges).
+# Rerun 2026-07-28: two-worker pool (opencode+kimi default, pi+qwen fallback)
+# with reroute-on-exhaustion so defect A (worker-failure reroute) can fire if
+# opencode credits are still exhausted, and pi handles the load.
 version = 1
 poll_every = "10s"
 
 [worker]
-runtime = "pi"
-pool = ["pi"]
+runtime = "opencode"
+pool = [{ name = "opencode", family = "kimi" }, { name = "pi", family = "qwen" }]
 sandbox = "worktree"
 timeout = "30m"
 maximum_timeout = "1h"
 max_concurrent = 1
+
+[pipeline]
+max_attempts_per_stage = 3
+reroute_on_exhaustion = true
 
 [factory]
 substrate_path = "/Users/jai/Desktop/substrate"
 episodic_path = "/Users/jai/Desktop/episodic"
 kb_path = "/Users/jai/Desktop/kb"
 gates_path = "/Users/jai/Desktop/gates"
-# Two-worker pool (opencode + pi): exploration_budget > 0 so the router
-# tries pi for data collection instead of always picking opencode (which
-# has history). 0.3 = 30% of claims routed to pi for the diversity run.
 exploration_budget = 0.3
 
 [source]

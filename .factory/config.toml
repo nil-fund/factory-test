@@ -1,18 +1,17 @@
 # Factory e2e config — full SDLC pipeline chain with agent-agnostic workers.
-# Rerun 2026-07-29 (defects G+H fix): cross-family diversity.
-# pool=[opencode(kimi), pi(qwen)], runtime=opencode. If opencode credits are
-# dead, pi runs everything (defect H: single-effective-worker no exclusion).
-# If opencode is alive, real diversity (opencode triage/spec/implement,
-# pi verify/review — gen≠verifier exercised). Defect G fix: prompt tells
-# workers to use `gh pr create --repo nil-fund/factory-test` explicitly.
+# Rerun 2026-07-29 (defects G+H fix, rerun 2): opencode/glm-5.2 single worker.
+# pool=[opencode], runtime=opencode. Pi doesn't execute code headlessly per the
+# rerun; codex not installed; opencode/glm-5.2 is the one working worker.
+# Defect H: single-worker relaxation means no separation degrade.
+# Defect G fix: prompt tells workers to use `gh pr create --repo nil-fund/factory-test` explicitly.
 # Chain: triage -> spec -> implement -> verify -> review -> halt (D30: human merges).
 # Reroute-on-exhaustion so defect A (worker-failure reroute) can fire.
 version = 1
 poll_every = "10s"
 
 [worker]
-runtime = "pi"
-pool = [{ name = "pi", family = "qwen" }]
+runtime = "opencode"
+pool = ["opencode"]
 sandbox = "worktree"
 timeout = "30m"
 maximum_timeout = "1h"

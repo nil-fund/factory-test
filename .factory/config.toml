@@ -10,7 +10,7 @@ poll_every = "10s"
 
 [worker]
 runtime = "pi"
-pool = [{ name = "pi", family = "qwen" }, { name = "opencode", family = "kimi" }]
+pool = [{ name = "pi", family = "qwen" }]
 sandbox = "worktree"
 timeout = "30m"
 maximum_timeout = "1h"

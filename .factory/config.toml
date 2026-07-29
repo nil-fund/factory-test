@@ -1,14 +1,16 @@
 # Factory e2e config — full SDLC pipeline chain with agent-agnostic workers.
+# Rerun 2026-07-28 (defect F fix): pi PRIMARY (opencode credits likely still
+# exhausted). pi handles all stages; opencode is fallback for reroute.
 # Chain: triage -> spec -> implement -> verify -> review -> halt (D30: a human merges).
-# Rerun 2026-07-28: two-worker pool (opencode+kimi default, pi+qwen fallback)
-# with reroute-on-exhaustion so defect A (worker-failure reroute) can fire if
-# opencode credits are still exhausted, and pi handles the load.
+# Reroute-on-exhaustion so defect A (worker-failure reroute) can fire if pi
+# fails on a stage, rerouting to opencode (if credits allow) or halting as
+# needs-human.
 version = 1
 poll_every = "10s"
 
 [worker]
-runtime = "opencode"
-pool = [{ name = "opencode", family = "kimi" }, { name = "pi", family = "qwen" }]
+runtime = "pi"
+pool = [{ name = "pi", family = "qwen" }, { name = "opencode", family = "kimi" }]
 sandbox = "worktree"
 timeout = "30m"
 maximum_timeout = "1h"

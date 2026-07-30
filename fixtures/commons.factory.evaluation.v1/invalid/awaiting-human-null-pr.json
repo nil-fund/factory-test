@@ -1,0 +1,49 @@
+{
+  "actor": {
+    "id": "factory:rule:success-criteria-runner-v1",
+    "kind": "system"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-000000000205",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": "stream-1:run-review-1",
+    "stage": "review",
+    "stage_attempt_id": "pipeline-execution-1:review:1",
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-00000000020d",
+  "event_type": "factory.pipeline.awaiting_human",
+  "integrity": {
+    "draft_sha256": "cc4cdf4326a7d180b5603e6f154a99dc59590b353e0c224b5fb2fa46900350da",
+    "payload_sha256": "9793889e83bc07f692a154829a9d15aa32cdf7b56ebddd9216de2d4717e5995d",
+    "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:20:13Z",
+  "payload": {
+    "boundary": "merge",
+    "merge_performed": false,
+    "pull_request_uri": null,
+    "review_verdict_event_id": "019c0000-0000-7000-8000-000000000205"
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:20:14Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 6,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-1"
+}

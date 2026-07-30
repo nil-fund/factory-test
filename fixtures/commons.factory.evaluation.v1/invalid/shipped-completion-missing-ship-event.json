@@ -1,0 +1,61 @@
+{
+  "actor": {
+    "id": "factory:rule:success-criteria-runner-v1",
+    "kind": "system"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-000000000208",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": null,
+    "stage": null,
+    "stage_attempt_id": null,
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-000000000210",
+  "event_type": "factory.pipeline.completed",
+  "integrity": {
+    "draft_sha256": "4373f5f512606614c5df19afed0a40112f4caec21ecc9687db4e652a1cb74a26",
+    "payload_sha256": "8025d86f5d1cd87087cd9908d1f816d7c6a1cc6008a133bc2adf6f6fe7bf8642",
+    "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:20:16Z",
+  "payload": {
+    "outcome": "shipped",
+    "terminal_stage": "ship",
+    "total_cost": {
+      "amount": 1.25,
+      "currency": "USD",
+      "source": "provider_invoice",
+      "status": "actual",
+      "evidence": {
+        "kind": "derived_aggregate",
+        "uri": "artifact://cost-evidence/019c0000-0000-7000-8000-000000000210/aggregate",
+        "sha256": "40b3beab3dc2ebb689d16ce4b552dab88e8477ec2c529650a334871dff6db72d",
+        "source_identity": "gates:cost-aggregator",
+        "meter_version": "stage-cost-sum-v1"
+      }
+    },
+    "total_latency_ms": 20000
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:20:17Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 9,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-1"
+}

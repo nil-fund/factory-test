@@ -1,0 +1,55 @@
+{
+  "actor": {
+    "id": "factory:rule:success-criteria-runner-v1",
+    "kind": "system"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-00000000020a",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": null,
+    "stage": null,
+    "stage_attempt_id": null,
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-000000000213",
+  "event_type": "factory.replay.evaluated",
+  "integrity": {
+    "draft_sha256": "05fc325b91108000f640952295b574a26b93a4597ad9444cdec9611e362a8717",
+    "payload_sha256": "454ca9a890db520c50b0ace611050b0697d7e13ef8804e637fa3bfe7da8c7e20",
+    "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:20:19Z",
+  "payload": {
+    "blocked": true,
+    "fingerprint_id": "fingerprint-1",
+    "fixture_class": "own_escape",
+    "fixture_id": "fixture-own-escape",
+    "matched": true,
+    "rule": {
+      "rule_id": "rule-1",
+      "rule_version": "rule-v1"
+    },
+    "target_gate": "verify-gate"
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:20:20Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 11,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-1"
+}

@@ -1,0 +1,58 @@
+{
+  "actor": {
+    "id": "worker-review-1",
+    "kind": "agent",
+    "model_id": null,
+    "runtime": "codex",
+    "worker_config_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "worker_id": "worker-review-1"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-000000000102",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": "stream-unknown-model:run-intake-1",
+    "stage": "intake",
+    "stage_attempt_id": "pipeline-execution-1:intake:1",
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-000000000103",
+  "event_type": "factory.worker.selected",
+  "integrity": {
+    "draft_sha256": "5bc869c854fa5ad5b56d9c097d00e015d7c064f41573074cb41d3f8eff3a4db7",
+    "payload_sha256": "de5372f8f43e97244531cfb054d345a5d99baa826030d426e3221fae83ada913",
+    "previous_event_sha256": "3169ec692f2c84fe97e282cd4a97c35542305d707a4e542a15ba251d76a8b94e",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:10:03Z",
+  "payload": {
+    "eligible_workers": [
+      "worker-review-1",
+      "worker-review-2"
+    ],
+    "excluded_workers": [],
+    "exploration": false,
+    "selection_reason": " ",
+    "separation_degraded": false,
+    "stage": "intake"
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:10:04Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 3,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-unknown-model"
+}

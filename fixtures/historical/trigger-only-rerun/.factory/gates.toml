@@ -1,4 +1,9 @@
-# Gate definitions for the factory-test e2e pipeline.
+# LEGACY / PRE-ACCEPTANCE FIXTURE.
+# These gates belong to the historical five-trigger rerun configured by
+# .factory/config.toml. They are not the Commons eight-stage SC-2 harness,
+# current Gates verdict controls, or evidence that SC-2 has run.
+#
+# Gate definitions for the historical factory-test e2e pipeline.
 #
 # A gate is a quality checkpoint that an artifact must pass before it can
 # advance to the next pipeline stage. Each gate is bound to a stage and
@@ -15,9 +20,9 @@
 # below honest artifacts (565B–1.9KB in the #6 run) and well above preambles
 # (the vacuous #6 spec artifact was 90B).
 #
-# Chain under test: triage -> spec -> implement -> verify -> review.
-# Merge and Ship have no gates here — the D30 invariant halts the pipeline
-# after review passes; a human merges.
+# Historical chain under test: triage -> spec -> implement -> verify -> review.
+# Intake, Merge post-merge verification, and Ship are absent. Current SC-2
+# requires the complete eight-stage contract under acceptance/commons.factory.v1.
 
 [[gates]]
 name = "triage-gate"

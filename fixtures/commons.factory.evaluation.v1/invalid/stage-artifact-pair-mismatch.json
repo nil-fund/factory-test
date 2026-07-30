@@ -1,0 +1,68 @@
+{
+  "actor": {
+    "id": "worker-review-1",
+    "kind": "agent",
+    "model_id": null,
+    "runtime": "codex",
+    "worker_config_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "worker_id": "worker-review-1"
+  },
+  "correlation": {
+    "commons_system_id": "commons-installation-1",
+    "intent_id": "intent-1",
+    "parent_event_id": "019c0000-0000-7000-8000-000000000203",
+    "pipeline_execution_id": "pipeline-execution-1",
+    "pipeline_template_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "repository_id": "github:nil-fund/example",
+    "runtime_run_id": "stream-1:run-review-1",
+    "stage": "review",
+    "stage_attempt_id": "pipeline-execution-1:review:1",
+    "ticket_id": "github:nil-fund/example#101"
+  },
+  "event_id": "019c0000-0000-7000-8000-00000000020c",
+  "event_type": "factory.stage.completed",
+  "integrity": {
+    "draft_sha256": "7a05a76f81c091705f52618244129dd039e2af6915be4af0dfc0ab2b823d39e1",
+    "payload_sha256": "97a8d78dafca36f2c1eaf4ccf9f4b109376f794722076438d07ab2cef42e8836",
+    "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "redaction_policy_version": "commons.redaction.v1"
+  },
+  "occurred_at": "2026-07-29T16:20:12Z",
+  "payload": {
+    "artifact_sha256": null,
+    "artifact_uri": "artifact://pipeline-execution-1/review/1",
+    "attempt_number": 1,
+    "cost": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "status": "unknown",
+      "evidence": null
+    },
+    "latency_ms": 1234,
+    "outcome": "passed",
+    "stage": "review",
+    "usage": {
+      "cached": null,
+      "input": null,
+      "output": null,
+      "reasoning": null
+    }
+  },
+  "producer": {
+    "component": "factory",
+    "instance_id": "factory-instance-1",
+    "process_id": 4242,
+    "version": "1.0.0"
+  },
+  "recorded_at": "2026-07-29T16:20:13Z",
+  "schema_version": "commons.factory.evaluation.v1",
+  "sequence": 4,
+  "source": {
+    "id": "nil-fund/example#101",
+    "kind": "github_issue",
+    "revision": "1",
+    "uri": "https://github.com/nil-fund/example/issues/101"
+  },
+  "stream_id": "commons:factory:installation-1:repository-1"
+}

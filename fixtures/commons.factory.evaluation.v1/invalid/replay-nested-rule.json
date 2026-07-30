@@ -18,7 +18,8 @@
   "event_id": "019c0000-0000-7000-8000-000000000213",
   "event_type": "factory.replay.evaluated",
   "integrity": {
-    "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "draft_sha256": "05fc325b91108000f640952295b574a26b93a4597ad9444cdec9611e362a8717",
+    "payload_sha256": "454ca9a890db520c50b0ace611050b0697d7e13ef8804e637fa3bfe7da8c7e20",
     "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "redaction_policy_version": "commons.redaction.v1"
   },

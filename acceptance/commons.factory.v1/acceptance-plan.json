@@ -2,6 +2,56 @@
   "schema_version": "commons.factory.acceptance-plan.v1",
   "contract": "acceptance/commons.factory.v1/contract.md",
   "authoritative_stream": "commons://episodic/factory/YYYY/MM/DD.jsonl",
+  "acceptance_ready": false,
+  "admission_blockers": [
+    "immutable fixture and cohort manifests are not registered",
+    "deterministic seeds are not registered",
+    "approved canonical pipeline template and gate policy are not registered",
+    "trusted component and managed-repository commits are not registered",
+    "complexity and defect-class assignments are not registered",
+    "independent Gates gate, cost, provider, and manifest verifiers are not implemented",
+    "reviewed Gates verifier artifact bindings and trust-root attestations are not registered",
+    "trusted committed fingerprint replay evaluator is not implemented"
+  ],
+  "required_preregistration": {
+    "fixture_manifest": {
+      "id": null,
+      "sha256": null
+    },
+    "cohort_manifest": {
+      "id": null,
+      "sha256": null
+    },
+    "deterministic_seeds": null,
+    "pipeline_template": {
+      "artifact_uri": null,
+      "sha256": null
+    },
+    "gate_policy": {
+      "artifact_uri": null,
+      "sha256": null
+    },
+    "trusted_commits": {
+      "factory": null,
+      "episodic": null,
+      "gates": null,
+      "substrate": null,
+      "workflow": null,
+      "managed_repository": null
+    },
+    "complexity_assignment": {
+      "id": null,
+      "sha256": null
+    }
+  },
+  "independent_verification": {
+    "require_gate_evidence_verifier": true,
+    "require_actual_cost_evidence_verifier": true,
+    "require_provider_evidence_verifier": true,
+    "require_manifest_attestation": true,
+    "factory_must_not_control_verifier_trust": true,
+    "implemented": false
+  },
   "pipeline_stage_order": [
     "intake",
     "triage",
@@ -49,6 +99,8 @@
         "actor"
       ],
       "required_initial_stage": "intake",
+      "require_preregistered_pipeline_template": true,
+      "require_preregistered_gate_policy": true,
       "maximum_pipeline_diff_entries": 0
     },
     {
@@ -67,6 +119,9 @@
       "required_boundary": "merge",
       "required_merge_actor_kind": "human",
       "require_independently_verified_provider_merge": true,
+      "require_independently_verified_gate_evidence": true,
+      "require_preregistered_pipeline_template": true,
+      "require_preregistered_gate_policy": true,
       "forbid_merge_or_ship_before_attestation": true,
       "required_terminal_outcome": "shipped"
     },
@@ -85,7 +140,10 @@
       "maximum_pipeline_diff_entries": 0,
       "maximum_absolute_first_pass_rate_delta": 0.05,
       "maximum_additional_escapes_in_swap_arm": 0,
-      "require_complete_worker_and_model_identity": true
+      "require_complete_worker_and_model_identity": true,
+      "require_independently_verified_gate_evidence": true,
+      "require_preregistered_pipeline_template": true,
+      "require_preregistered_gate_policy": true
     },
     {
       "id": "SC-4",
@@ -102,7 +160,9 @@
       "maximum_known_clean_false_positives": 0,
       "require_next_similar_blocked": true,
       "maximum_post_activation_recurrence": 0,
-      "require_executable_regression_test": true
+      "require_executable_regression_test": true,
+      "require_trusted_committed_replay_evaluator": true,
+      "require_independently_verified_gate_evidence": true
     },
     {
       "id": "SC-5",
@@ -122,6 +182,8 @@
       "minimum_escape_reduction": 1,
       "maximum_final_to_first_median_actual_cost_ratio": 0.85,
       "require_actual_cost_for_every_execution": true,
+      "require_independently_verified_actual_cost_evidence": true,
+      "require_independently_verified_gate_evidence": true,
       "require_complete_terminal_state_for_every_execution": true,
       "require_equal_complexity_mix_per_five_ticket_window": true
     }

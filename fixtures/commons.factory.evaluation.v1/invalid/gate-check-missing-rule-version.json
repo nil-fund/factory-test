@@ -18,7 +18,8 @@
   "event_id": "019c0000-0000-7000-8000-000000000208",
   "event_type": "factory.gate.evaluated",
   "integrity": {
-    "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "draft_sha256": "27db035b0694ceb85cf8c86f3fb7a47fae34a3a1db8a3e9ca81337bb9a1330fe",
+    "payload_sha256": "498dcc53af91e9fcb131d062ace024748759e265df705aa3772084a0d728a1ce",
     "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "redaction_policy_version": "commons.redaction.v1"
   },
@@ -30,7 +31,11 @@
         "evidence_refs": [
           "artifact://review/check"
         ],
-        "result": "pass"
+        "result": "pass",
+        "evidence_sha256s": [
+          "8201c4d7b59cf041f182020786a89d2b393af4a01a95e25a207d16ac9672ae97"
+        ],
+        "rule_sha256": "9e40c6c02164b69b2842c876a6ee9e6c046977e33c810c88f3e88a74fd4e9ee1"
       }
     ],
     "gate_id": "review-gate",

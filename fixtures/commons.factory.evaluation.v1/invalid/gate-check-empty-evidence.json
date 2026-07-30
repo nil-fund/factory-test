@@ -18,7 +18,8 @@
   "event_id": "019c0000-0000-7000-8000-00000000020a",
   "event_type": "factory.gate.evaluated",
   "integrity": {
-    "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "draft_sha256": "8046a83ca72d8da2fe6af2ab53122bda3cabaa5cf331e14dca62878f2fbde6f4",
+    "payload_sha256": "c1b75cd57507c1b1afefdb316820f3625d22c60809f4dbe189543006198dd0a3",
     "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "redaction_policy_version": "commons.redaction.v1"
   },
@@ -29,7 +30,9 @@
         "check_id": "review-approved",
         "evidence_refs": [],
         "result": "pass",
-        "rule_version": "rule-v1"
+        "rule_version": "rule-v1",
+        "evidence_sha256s": [],
+        "rule_sha256": "b6607e58a3b07d4a58c33edf42626570aaeff8ea13a782f28e8686b263231956"
       }
     ],
     "gate_id": "review-gate",

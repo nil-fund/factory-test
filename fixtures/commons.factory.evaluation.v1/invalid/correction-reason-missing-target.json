@@ -37,6 +37,7 @@
   "event_id": "019c0000-0000-7000-8000-000000000202",
   "event_type": "factory.intake.accepted",
   "integrity": {
+    "draft_sha256": "a7e7c91ff143226cf67a4f81351c83b324f46c4d2c1c7ed33568f0fe875b8d07",
     "payload_sha256": "24bbf2e9aba45081e154b9e3a8baf1a564dd9e4371bd6702d4c07bb6d6c8ae19",
     "previous_event_sha256": null,
     "redaction_policy_version": "commons.redaction.v1"

@@ -14,7 +14,8 @@ Factory Test owns the scenarios, corpus, and harness. Gates owns conformance
 and acceptance verdict controls; Episodic owns only the append-only historical
 event bytes.
 
-The checked-in `.factory/config.toml`, `.factory/gates.toml`, and five workflow
-files are preserved legacy/pre-acceptance fixtures from a trigger-only rerun.
-They stop after Review, do not implement the canonical Intake-through-Ship
-sequence, and are not the SC-2 eight-stage harness or evidence of success.
+The historical trigger-only rerun bundle is preserved under
+[`fixtures/historical/trigger-only-rerun`](fixtures/historical/trigger-only-rerun/README.md).
+It stops after Review, pins an obsolete worker/model, and is neither an active
+Factory Runtime configuration nor the SC-2 eight-stage harness. Factory Test
+intentionally has no root `.factory/` or `opencode.json` auto-discovery surface.

@@ -22,7 +22,8 @@
   "event_id": "019c0000-0000-7000-8000-00000000020b",
   "event_type": "factory.stage.completed",
   "integrity": {
-    "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "draft_sha256": "1a75375e7eaf3f3cfc4e345ad129e67689cd398e64990fcb1a7f253aa0e46692",
+    "payload_sha256": "daecc593fb18017bc1f5479e72386e00bcb1f9922bdaca1c8bb976ccaefdcaf2",
     "previous_event_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "redaction_policy_version": "commons.redaction.v1"
   },
@@ -35,7 +36,8 @@
       "amount": 0,
       "currency": null,
       "source": null,
-      "status": "unknown"
+      "status": "unknown",
+      "evidence": null
     },
     "latency_ms": 1234,
     "outcome": "passed",

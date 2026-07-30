@@ -4,6 +4,10 @@ Factory Test owns controlled Commons acceptance fixtures and end-to-end
 verification. It does not own runtime state, past experience, or normative
 controls.
 
+`Commons`, `Commons Factory`, and an unqualified `Factory` name the whole
+six-repository system. Factory Runtime is the production ticket runner; Factory
+Test independently exercises and verifies that flow.
+
 The first versioned corpus is
 [`fixtures/commons.factory.evaluation.v1`](fixtures/commons.factory.evaluation.v1/README.md).
 
